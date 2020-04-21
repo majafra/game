@@ -9,11 +9,10 @@ public class GameProcess {
     int[]dice1;
     int[]dice2;
     int[]dice3;
-    int[]excluded1;
     int[]excluded2;
 
 
-    public boolean containsAfterFirstThrow (excluded1,int n){
+    public boolean containsAfterFirstThrow (int n,int...excluded1){
         boolean result= false;
         for (int number : excluded1){
             if(number == n) {
@@ -22,7 +21,7 @@ public class GameProcess {
         }
         return result;
     }
-    public boolean containsAfterSecondThrow (excluded2,int n){
+    public boolean containsAfterSecondThrow (int n,int...excluded2){
         boolean result= false;
         for (int number : excluded2){
             if(number == n) {
@@ -38,34 +37,40 @@ public class GameProcess {
 
         for (int n = 0; n < 5; n++) {
             dice[n]=random.nextInt(6) + 1;
-            System.out.println(dice[n]);
         }
         dice1 = dice;
+        for (int w=0;w<5;w++) {
+            System.out.println(dice1[w]);
+        }
         return dice1;
     }
 
-    public int[] throwDicesSecondTime(excluded1) {
-        //this.throwDices();
+    public int[] throwDicesSecondTime(int...excluded1) {
 
         for (int n = 0; n < 5; n++) {
-            if (!containsAfterFirstThrow(excluded1, n)) {
-                this.dice1[n] = random.nextInt(6) + 1;
+            if (!containsAfterFirstThrow(n, excluded1)) {
+                dice1[n] = random.nextInt(6) + 1;
             }
-            dice2 = dice1;
         }
+            dice2 = dice1;
+            for (int s=0;s<5;s++) {
+                System.out.println(dice2[s]);
+            }
         return dice2;
     }
 
-    public int[] throwDicesThirdTime (excluded2){
-        //this.throwDicesSecondTime(excluded1);
+    public int[] throwDicesThirdTime (int...excluded2){
 
         for (int n = 0; n < 5; n++) {
-            if(!containsAfterSecondThrow(excluded2,n)){
-                dice2[n]=random.nextInt(6) + 1;
+            if (!containsAfterSecondThrow(n, excluded2)) {
+                dice2[n] = random.nextInt(6) + 1;
             }
+        }
             dice3 = dice2;
+            for (int s=0;s<5;s++) {
+                System.out.println(dice3[s]);
             }
         return dice3;
-        }
     }
 }
+
