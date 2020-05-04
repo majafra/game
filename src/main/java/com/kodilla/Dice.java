@@ -1,5 +1,6 @@
 package com.kodilla;
 
+
 public class Dice {
 
     public void dice() {

@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+//prawy panel, w ktorym będzie wyswietlony rezultat
 public class VBoxRight {
     public VBox addHBox() {
         VBox vbox = new VBox();
